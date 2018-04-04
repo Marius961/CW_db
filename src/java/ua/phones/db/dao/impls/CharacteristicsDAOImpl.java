@@ -5,6 +5,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ua.phones.db.dao.interfaces.CharacteristicsDAO;
 import ua.phones.db.models.Characteristics;
@@ -36,18 +38,34 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
     }
 
     @Override
-    public boolean insertCharacteristics(Characteristics characteristics) {
-        String sql = "INSERT INTO characteristics (battery_volume, processor_id, camera_id, display_id) VALUES (:btVol, :processorId, :cameraId, :displayId)";
+    public Characteristics getCharacteristics(Characteristics characteristics) {
+        String sql = "SELECT * FROM characteristics WHERE battery_volume=:btVol AND processor_id=:processorId AND camera_id=:cameraId AND display_id=:displayId";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("btVol", characteristics.getBatteryVolume());
         params.addValue("processorId", characteristics.getProcessorId());
         params.addValue("cameraId", characteristics.getCameraId());
         params.addValue("displayId", characteristics.getDisplayId());
         try {
-            jdbcTemplate.update(sql, params);
-            return false;
+            return jdbcTemplate.queryForObject(sql, params, new CharacteristicsMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public int insertCharacteristics(Characteristics characteristics) {
+        String sql = "INSERT INTO characteristics (battery_volume, processor_id, camera_id, display_id) VALUES (:btVol, :processorId, :cameraId, :displayId)";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("btVol", characteristics.getBatteryVolume());
+        params.addValue("processorId", characteristics.getProcessorId());
+        params.addValue("cameraId", characteristics.getCameraId());
+        params.addValue("displayId", characteristics.getDisplayId());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        try {
+            jdbcTemplate.update(sql, params, keyHolder);
+            return Integer.parseInt(keyHolder.getKey().toString());
         } catch (Exception e) {
-            return false;
+            return 0;
         }
     }
 

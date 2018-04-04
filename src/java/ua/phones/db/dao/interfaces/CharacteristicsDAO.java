@@ -6,7 +6,9 @@ public interface CharacteristicsDAO {
 
     Characteristics getCharacteristics(int id);
 
-    boolean insertCharacteristics(Characteristics characteristics);
+    Characteristics getCharacteristics(Characteristics characteristics);
+
+    int insertCharacteristics(Characteristics characteristics);
 
     boolean deleteCharacteristics(int id);
 

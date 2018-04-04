@@ -5,6 +5,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ua.phones.db.dao.interfaces.DisplayDAO;
 import ua.phones.db.models.Display;
@@ -36,18 +38,34 @@ public class DisplayDAOImpl implements DisplayDAO {
     }
 
     @Override
-    public boolean insertDisplay(Display display) {
-        String sql = "INSERT INTO displays (model, resolution, size, technology) VALUES (:model, :resolution, :size, :technology)";
+    public Display getDisplay(Display display) {
+        String sql = "SELECT * FROM displays WHERE model=:model AND resolution=:resolution AND size=:size AND technology=:technology";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("model", display.getModel());
         params.addValue("resolution", display.getResolution());
         params.addValue("size", display.getSize());
         params.addValue("technology", display.getTechnology());
         try {
-            jdbcTemplate.update(sql, params);
-            return true;
+            return jdbcTemplate.queryForObject(sql, params, new DisplayMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public int insertDisplay(Display display) {
+        String sql = "INSERT INTO displays (model, resolution, size, technology) VALUES (:model, :resolution, :size, :technology)";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("model", display.getModel());
+        params.addValue("resolution", display.getResolution());
+        params.addValue("size", display.getSize());
+        params.addValue("technology", display.getTechnology());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        try {
+            jdbcTemplate.update(sql, params, keyHolder);
+            return Integer.parseInt(keyHolder.getKey().toString());
         } catch (Exception e) {
-            return false;
+            return 0;
         }
 
     }

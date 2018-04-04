@@ -5,6 +5,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ua.phones.db.dao.interfaces.CameraDAO;
 import ua.phones.db.models.Camera;
@@ -36,16 +38,30 @@ public class CameraDAOImpl implements CameraDAO {
     }
 
     @Override
-    public boolean insertCamera(Camera camera) {
+    public Camera getCamera(Camera camera) {
+        String sql = "SELECT * FROM cameras WHERE resolution=:resolution AND num_of_pixels=:numOfPixels";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("resolution", camera.getResolution());
+        params.addValue("numOfPixels", camera.getNumOfPixels());
+        try {
+            return jdbcTemplate.queryForObject(sql, params, new CameraMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public int insertCamera(Camera camera) {
         String sql = "INSERT INTO cameras (resolution, num_of_pixels) VALUES (:resolution, :numOfPixels)";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("resolution", camera.getResolution());
         params.addValue("numOfPixels", camera.getNumOfPixels());
         try {
-            jdbcTemplate.update(sql, params);
-            return true;
+            KeyHolder keyHolder = new GeneratedKeyHolder();
+            jdbcTemplate.update(sql, params, keyHolder);
+            return Integer.parseInt(keyHolder.getKey().toString());
         } catch (Exception e) {
-            return false;
+            return 0;
         }
     }
 

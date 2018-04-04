@@ -6,11 +6,11 @@ public interface CameraDAO {
 
     Camera getCamera(int id);
 
-    boolean insertCamera(Camera camera);
+    Camera getCamera(Camera camera);
+
+    int insertCamera(Camera camera);
 
     boolean deleteCamera(int id);
 
     boolean updateCamera(Camera camerac);
-
-
 }

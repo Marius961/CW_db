@@ -5,6 +5,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ua.phones.db.dao.interfaces.ProcessorDAO;
 import ua.phones.db.models.Processor;
@@ -36,17 +38,32 @@ public class ProcessorDAOImpl implements ProcessorDAO {
     }
 
     @Override
-    public boolean insertProcessor(Processor processor) {
-        String sql = "INSERT INTO processors (model, cores, frequency) VALUES (:model, :cores, :frequency)";
+    public Processor getProcessor(Processor processor) {
+        String sql = "SELECT * FROM processors WHERE model=:model AND cores=:cores AND frequency=:frequency";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("model", processor.getModel());
         params.addValue("cores", processor.getCores());
         params.addValue("frequency", processor.getFrequency());
         try {
-            jdbcTemplate.update(sql, params);
-            return true;
+            return jdbcTemplate.queryForObject(sql, params, new ProcessorMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public int insertProcessor(Processor processor) {
+        String sql = "INSERT INTO processors (model, cores, frequency) VALUES (:model, :cores, :frequency)";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("model", processor.getModel());
+        params.addValue("cores", processor.getCores());
+        params.addValue("frequency", processor.getFrequency());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        try {
+            jdbcTemplate.update(sql, params, keyHolder);
+            return Integer.parseInt(keyHolder.getKey().toString());
         } catch (Exception e) {
-            return false;
+            return 0;
         }
     }
 

@@ -6,7 +6,9 @@ public interface DisplayDAO {
 
     Display getDisplay(int id);
 
-    boolean insertDisplay(Display display);
+    Display getDisplay(Display display);
+
+    int insertDisplay(Display display);
 
     boolean deleteDisplay(int ind);
 

@@ -5,9 +5,10 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 import ua.phones.db.dao.interfaces.VendorDAO;
-import ua.phones.db.models.Processor;
 import ua.phones.db.models.Vendor;
 
 import javax.sql.DataSource;
@@ -37,15 +38,28 @@ public class VendorDAOImpl implements VendorDAO {
     }
 
     @Override
-    public boolean insertVendor(Vendor vendor) {
-        String sql = "INSERT INTO vendors (name) VALUES (:name)";
+    public Vendor getVendor(Vendor vendor) {
+        String sql = "SELECT * FROM vendors WHERE name=:name";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("name", vendor.getName());
         try {
-            jdbcTemplate.update(sql, params);
-            return true;
+            return jdbcTemplate.queryForObject(sql, params, new VendorMapper());
         } catch (EmptyResultDataAccessException e) {
-            return false;
+            return null;
+        }
+    }
+
+    @Override
+    public int insertVendor(Vendor vendor) {
+        String sql = "INSERT INTO vendors (name) VALUES (:name)";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("name", vendor.getName());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        try {
+            jdbcTemplate.update(sql, params, keyHolder);
+            return Integer.parseInt(keyHolder.getKey().toString());
+        } catch (EmptyResultDataAccessException e) {
+            return 0;
         }
 
     }
@@ -65,7 +79,7 @@ public class VendorDAOImpl implements VendorDAO {
 
     @Override
     public boolean updateVendor(Vendor vendor) {
-        String sql = "UPDATE vendors SET name:name WHERE id=:id";
+        String sql = "UPDATE vendors SET name=:name WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", vendor.getId());
         params.addValue("name", vendor.getName());
@@ -84,7 +98,7 @@ public class VendorDAOImpl implements VendorDAO {
         public Vendor mapRow(ResultSet rs, int i) throws SQLException {
             Vendor vendor = new Vendor();
             vendor.setId(rs.getInt("id"));
-            vendor.setName(rs.getNString("name"));
+            vendor.setName(rs.getString("name"));
             return vendor;
         }
     }

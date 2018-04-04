@@ -8,7 +8,9 @@ public interface SmartphoneDAO {
 
     List<Smartphone> getAllSmartphones();
 
-    Smartphone getSmartphome(int id);
+    Smartphone getSmartphone(int id);
+
+    Smartphone getSmartphone(Smartphone smartphone);
 
     boolean insertSmartphone(Smartphone smartphone);
 

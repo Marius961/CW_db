@@ -6,7 +6,9 @@ public interface ProcessorDAO {
 
     Processor getProcessor(int id);
 
-    boolean insertProcessor(Processor processor);
+    Processor getProcessor(Processor processor);
+
+    int insertProcessor(Processor processor);
 
     boolean deleteProcessor(int id);
 

@@ -203,9 +203,19 @@
       <DataType>VARCHAR|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="54" parent="13">
+    <index id="54" parent="13" name="sqlite_autoindex_vendors_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="13">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="56" parent="13">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_vendors_1</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

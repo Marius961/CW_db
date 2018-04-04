@@ -6,7 +6,9 @@ public interface VendorDAO {
 
     Vendor getVendor(int id);
 
-    boolean insertVendor(Vendor vendor);
+    Vendor getVendor(Vendor vendor);
+
+    int insertVendor(Vendor vendor);
 
     boolean deleteVendor(int id);
 
