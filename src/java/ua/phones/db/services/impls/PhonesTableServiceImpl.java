@@ -69,6 +69,14 @@ public class PhonesTableServiceImpl implements PhonesTableService {
     }
 
     @Override
+    public void updateCamera(Camera camera) {
+        Camera tempCamera = cameraDAO.getCamera(camera.getId());
+        if (tempCamera != camera) {
+            cameraDAO.updateCamera(camera);
+        }
+    }
+
+    @Override
     public void deleteCamera(int id) {
         boolean completed = cameraDAO.deleteCamera(id);
         if(!completed) {
@@ -88,6 +96,14 @@ public class PhonesTableServiceImpl implements PhonesTableService {
     }
 
     @Override
+    public void updateDisplay(Display display) {
+        Display tempDisplay1 = displayDAO.getDisplay(display.getId());
+        if (tempDisplay1 != display) {
+            displayDAO.updateDisplay(display);
+        }
+    }
+
+    @Override
     public void deleteDisplay(int id) {
         boolean completed = displayDAO.deleteDisplay(id);
         if (!completed) {
@@ -104,6 +120,14 @@ public class PhonesTableServiceImpl implements PhonesTableService {
             return tempProcessor.getId();
         }
         return processorDAO.insertProcessor(processor);
+    }
+
+    @Override
+    public void updateProcessor(Processor processor) {
+        Processor tempProcessor = processorDAO.getProcessor(processor.getId());
+        if (tempProcessor != processor) {
+            processorDAO.updateProcessor(processor);
+        }
     }
 
     @Override
@@ -129,6 +153,17 @@ public class PhonesTableServiceImpl implements PhonesTableService {
     }
 
     @Override
+    public void updateCharacteristics(Characteristics characteristics) {
+        Characteristics tempCharacteristics1 = characteristicsDAO.getCharacteristics(characteristics.getId());
+        if (tempCharacteristics1 != characteristics) {
+            characteristicsDAO.updateCharacteristics(characteristics);
+        }
+        updateProcessor(characteristics.getProcessor());
+        updateCamera(characteristics.getCamera());
+        updateDisplay(characteristics.getDisplay());
+    }
+
+    @Override
     public void deleteCharacteristics(int id) {
         Characteristics characteristics = characteristicsDAO.getCharacteristics(id);
         characteristicsDAO.deleteCharacteristics(id);
@@ -144,6 +179,14 @@ public class PhonesTableServiceImpl implements PhonesTableService {
             return tempVendor1.getId();
         }
         return vendorDAO.insertVendor(vendor);
+    }
+
+    @Override
+    public void updateVendor(Vendor vendor) {
+        Vendor tempVendor = vendorDAO.getVendor(vendor.getId());
+        if (tempVendor != vendor) {
+            vendorDAO.updateVendor(vendor);
+        }
     }
 
     @Override
@@ -167,9 +210,20 @@ public class PhonesTableServiceImpl implements PhonesTableService {
     }
 
     @Override
+    public void updateSmartPhone(Smartphone smartphone) {
+        Smartphone tempSmartphone = smartphoneDAO.getSmartphone(smartphone.getId());
+        if (tempSmartphone != smartphone) {
+            smartphoneDAO.updateSmartphone(smartphone);
+        }
+        updateVendor(smartphone.getVendor());
+        updateCharacteristics(smartphone.getCharacteristics());
+    }
+
+    @Override
     public void deleteSmartPhone(int id) {
         Smartphone smartphone = smartphoneDAO.getSmartphone(id);
         smartphoneDAO.deleteSmartphome(id);
+        deleteVendor(smartphone.getId());
         deleteCharacteristics(smartphone.getCharacteristicsId());
     }
 }
