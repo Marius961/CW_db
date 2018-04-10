@@ -48,6 +48,10 @@
                 <th>Процесор:</th>
             </tr>
             <tr>
+                <td class="c-table">Модель:</td>
+                <td class="c-table">${smartphone.characteristics.processor.model}</td>
+            </tr>
+            <tr>
                 <td class="c-table">Кількість ядер:</td>
                 <td class="c-table">${smartphone.characteristics.processor.cores}</td>
             </tr>
@@ -76,10 +80,17 @@
             </tr>
         </table>
         <div class="div-right">
-            <button class="btn btn-info inline-btn">Змінити</button>
-            <form:form modelAttribute="smartphone" method="post" action="/delete">
+            <form:form modelAttribute="smartphone" method="post" action="/update" cssClass="inline-btn">
                 <form:input path="id" value="${smartphone.id}" type="hidden"/>
-                <button type="submit" class="btn btn-danger inline-btn">Видалити</button>
+                <form:input path="characteristicsId" value="${smartphone.characteristicsId}" type="hidden"/>
+                <form:input path="vendorId" value="${smartphone.vendorId}" type="hidden"/>
+                <form:input path="model" value="${smartphone.model}" type="hidden"/>
+                <button class="btn btn-info btn-2">Змінити</button>
+            </form:form>
+
+            <form:form modelAttribute="deletedPhone" method="post" action="/delete" cssClass="inline-btn">
+                <form:hidden path="smartphoneId" value="${smartphone.id}"/>
+                <button type="submit" class="btn btn-danger btn-2">Видалити</button>
             </form:form>
         </div>
     </div>

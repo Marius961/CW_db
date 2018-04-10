@@ -70,6 +70,7 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void updateCamera(Camera camera) {
+        System.out.println(camera.getResolution() + " res");
         Camera tempCamera = cameraDAO.getCamera(camera.getId());
         if (tempCamera != camera) {
             cameraDAO.updateCamera(camera);
@@ -97,8 +98,8 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void updateDisplay(Display display) {
-        Display tempDisplay1 = displayDAO.getDisplay(display.getId());
-        if (tempDisplay1 != display) {
+        Display tempDisplay = displayDAO.getDisplay(display.getId());
+        if (tempDisplay != display) {
             displayDAO.updateDisplay(display);
         }
     }
@@ -154,12 +155,8 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void updateCharacteristics(Characteristics characteristics) {
-        Characteristics tempCharacteristics1 = characteristicsDAO.getCharacteristics(characteristics.getId());
-        if (tempCharacteristics1 != characteristics) {
-            characteristicsDAO.updateCharacteristics(characteristics);
-        }
-        updateProcessor(characteristics.getProcessor());
         updateCamera(characteristics.getCamera());
+        updateProcessor(characteristics.getProcessor());
         updateDisplay(characteristics.getDisplay());
     }
 
@@ -211,12 +208,11 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void updateSmartPhone(Smartphone smartphone) {
-        Smartphone tempSmartphone = smartphoneDAO.getSmartphone(smartphone.getId());
-        if (tempSmartphone != smartphone) {
-            smartphoneDAO.updateSmartphone(smartphone);
-        }
+        smartphone = prepareSmartphone(smartphone);
         updateVendor(smartphone.getVendor());
         updateCharacteristics(smartphone.getCharacteristics());
+        smartphoneDAO.updateSmartphone(smartphone);
+
     }
 
     @Override
@@ -225,5 +221,15 @@ public class PhonesTableServiceImpl implements PhonesTableService {
         smartphoneDAO.deleteSmartphome(id);
         deleteVendor(smartphone.getId());
         deleteCharacteristics(smartphone.getCharacteristicsId());
+    }
+
+    private Smartphone prepareSmartphone(Smartphone smartphone) {
+        smartphone.getVendor().setId(smartphone.getVendorId());
+        Characteristics tempCharacteristics = smartphone.getCharacteristics();
+        tempCharacteristics.getCamera().setId(tempCharacteristics.getCameraId());
+        tempCharacteristics.getProcessor().setId(tempCharacteristics.getProcessorId());
+        tempCharacteristics.getDisplay().setId(tempCharacteristics.getDisplayId());
+        smartphone.setCharacteristics(tempCharacteristics);
+        return smartphone;
     }
 }

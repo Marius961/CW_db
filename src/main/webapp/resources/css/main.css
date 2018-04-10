@@ -25,13 +25,32 @@
 
 .inline-btn {
     display: inline-block;
-    margin: 1%;
+    margin: 3%;
     float: left;
 }
 
 .div-right {
     display: inline-block;
-    margin-left: 72%;
-    width: 22%;
+    position: relative;
+    left: 84%;
+    width: 30%;
+}
+
+
+
+td th {
+    width: 25%;
+    display: inline-block;
+}
+
+.btn-2 {
+    height: 6%;
+    font-size: 2.3vh;
+    text-align: center;
+    padding: 8%;
+}
+
+.error-1 {
+    color: red;
 }
 

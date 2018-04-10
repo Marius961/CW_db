@@ -29,4 +29,6 @@ public class Camera {
     public void setResolution(String resolution) {
         this.resolution = resolution;
     }
+
+
 }

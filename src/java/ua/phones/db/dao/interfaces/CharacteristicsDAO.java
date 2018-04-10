@@ -13,4 +13,5 @@ public interface CharacteristicsDAO {
     boolean deleteCharacteristics(int id);
 
     boolean updateCharacteristics(Characteristics characteristics);
+
 }

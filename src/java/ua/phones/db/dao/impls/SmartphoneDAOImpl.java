@@ -62,6 +62,18 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
     }
 
     @Override
+    public Smartphone getSmartPhoneByModel(String model) {
+        String sql = "SELECT * FROM smartphones WHERE model=:model";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("model", model);
+        try {
+            return jdbcTemplate.queryForObject(sql, params, new SmartphoneMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
     public boolean insertSmartphone(Smartphone smartphone) {
         String sql = "INSERT INTO smartphones (vendor_id, model, characteristics_id) VALUES (:vendorId, :model, :characteristicsId)";
         MapSqlParameterSource params = new MapSqlParameterSource();

@@ -99,7 +99,7 @@ public class CameraDAOImpl implements CameraDAO {
         public Camera mapRow(ResultSet rs, int i) throws SQLException {
             Camera camera = new Camera();
             camera.setId(rs.getInt("id"));
-            camera.setResolution("resolution");
+            camera.setResolution(rs.getString("resolution"));
             camera.setNumOfPixels(rs.getInt("num_of_pixels"));
             return camera;
         }
