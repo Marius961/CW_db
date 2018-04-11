@@ -66,31 +66,21 @@ public class CameraDAOImpl implements CameraDAO {
     }
 
     @Override
-    public boolean deleteCamera(int id) {
+    public void deleteCamera(int id) {
         String sql = "DELETE FROM cameras WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     @Override
-    public boolean updateCamera(Camera camera) {
+    public void updateCamera(Camera camera) {
         String sql = "UPDATE cameras SET resolution=:resolution, num_of_pixels=:numOfPixels WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", camera.getId());
         params.addValue("resolution", camera.getResolution());
         params.addValue("numOfPixels", camera.getNumOfPixels());
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     private static final class CameraMapper implements RowMapper<Camera> {

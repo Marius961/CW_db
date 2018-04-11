@@ -35,7 +35,7 @@ public class homeController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/smartPhone", method = RequestMethod.GET)
     public ModelAndView createSmartPhone(@ModelAttribute Smartphone smartphone) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("smartPhone", smartphone);
@@ -44,7 +44,7 @@ public class homeController {
     }
 
 
-    @RequestMapping(value = "/create-smartphone", method = RequestMethod.POST)
+    @RequestMapping(value = "/process", method = RequestMethod.POST)
     public String addSmartPhone(@ModelAttribute("smartPhone") Smartphone smartphone, BindingResult bindingResult) {
         smartphoneValidator.validate(smartphone, bindingResult);
         if (!bindingResult.hasErrors()) {
@@ -69,7 +69,6 @@ public class homeController {
     public ModelAndView updatePhone(@ModelAttribute Smartphone smartphone) {
         ModelAndView modelAndView = new ModelAndView();
         smartphone = phonesTableService.fillSmartphone(smartphone);
-        System.out.println("1st char id " + smartphone.getCharacteristicsId());
         modelAndView.addObject("smartPhone", smartphone);
         modelAndView.setViewName("createSmartPhone");
         return modelAndView;

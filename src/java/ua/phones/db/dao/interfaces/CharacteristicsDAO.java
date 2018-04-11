@@ -10,8 +10,8 @@ public interface CharacteristicsDAO {
 
     int insertCharacteristics(Characteristics characteristics);
 
-    boolean deleteCharacteristics(int id);
+    void deleteCharacteristics(int id);
 
-    boolean updateCharacteristics(Characteristics characteristics);
+    void updateCharacteristics(Characteristics characteristics);
 
 }

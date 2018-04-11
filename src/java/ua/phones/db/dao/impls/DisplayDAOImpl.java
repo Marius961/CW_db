@@ -71,20 +71,15 @@ public class DisplayDAOImpl implements DisplayDAO {
     }
 
     @Override
-    public boolean deleteDisplay(int id) {
+    public void deleteDisplay(int id) {
         String sql = "DELETE FROM displays WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     @Override
-    public boolean updateDisplay(Display display) {
+    public void updateDisplay(Display display) {
         String sql = "UPDATE displays SET model=:model, resolution=:resolution, size=:size, technology=:technology WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", display.getId());
@@ -92,12 +87,7 @@ public class DisplayDAOImpl implements DisplayDAO {
         params.addValue("resolution", display.getResolution());
         params.addValue("size", display.getSize());
         params.addValue("technology", display.getTechnology());
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     private static final class DisplayMapper implements RowMapper<Display> {

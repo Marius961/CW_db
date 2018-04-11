@@ -65,30 +65,20 @@ public class VendorDAOImpl implements VendorDAO {
     }
 
     @Override
-    public boolean deleteVendor(int id) {
+    public void deleteVendor(int id) {
         String sql = "DELETE FROM vendors WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     @Override
-    public boolean updateVendor(Vendor vendor) {
+    public void updateVendor(Vendor vendor) {
         String sql = "UPDATE vendors SET name=:name WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", vendor.getId());
         params.addValue("name", vendor.getName());
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
 

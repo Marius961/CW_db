@@ -10,7 +10,7 @@ public interface CameraDAO {
 
     int insertCamera(Camera camera);
 
-    boolean deleteCamera(int id);
+    void deleteCamera(int id);
 
-    boolean updateCamera(Camera camerac);
+    void updateCamera(Camera camerac);
 }

@@ -74,47 +74,32 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
     }
 
     @Override
-    public boolean insertSmartphone(Smartphone smartphone) {
+    public void insertSmartphone(Smartphone smartphone) {
         String sql = "INSERT INTO smartphones (vendor_id, model, characteristics_id) VALUES (:vendorId, :model, :characteristicsId)";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("vendorId", smartphone.getVendorId());
         params.addValue("model", smartphone.getModel());
         params.addValue("characteristicsId", smartphone.getCharacteristicsId());
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     @Override
-    public boolean deleteSmartphome(int id) {
+    public void deleteSmartphome(int id) {
         String sql = "DELETE FROM smartphones WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     @Override
-    public boolean updateSmartphone(Smartphone smartphone) {
+    public void updateSmartphone(Smartphone smartphone) {
         String sql = "UPDATE smartphones SET vendor_id=:vendorId, model=:model, characteristics_id=:characteristicsId WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", smartphone.getId());
         params.addValue("vendorId", smartphone.getVendorId());
         params.addValue("model", smartphone.getModel());
         params.addValue("characteristicsId", smartphone.getCharacteristicsId());
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     private static final class SmartphoneMapper implements RowMapper<Smartphone> {

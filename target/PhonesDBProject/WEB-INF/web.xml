@@ -6,6 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
 
 
+
+  <session-config>
+    <tracking-mode>COOKIE</tracking-mode>
+  </session-config>
+
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:app-context.xml</param-value>

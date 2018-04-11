@@ -10,8 +10,8 @@ public interface VendorDAO {
 
     int insertVendor(Vendor vendor);
 
-    boolean deleteVendor(int id);
+    void deleteVendor(int id);
 
-    boolean updateVendor(Vendor vendor);
+    void updateVendor(Vendor vendor);
 
 }

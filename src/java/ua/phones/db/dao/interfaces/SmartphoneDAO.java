@@ -14,10 +14,10 @@ public interface SmartphoneDAO {
 
     Smartphone getSmartPhoneByModel(String model);
 
-    boolean insertSmartphone(Smartphone smartphone);
+    void insertSmartphone(Smartphone smartphone);
 
-    boolean deleteSmartphome(int id);
+    void deleteSmartphome(int id);
 
-    boolean updateSmartphone(Smartphone smartphone);
+    void updateSmartphone(Smartphone smartphone);
 
 }

@@ -10,7 +10,7 @@ public interface DisplayDAO {
 
     int insertDisplay(Display display);
 
-    boolean deleteDisplay(int ind);
+    void deleteDisplay(int ind);
 
-    boolean updateDisplay(Display display);
+    void updateDisplay(Display display);
 }

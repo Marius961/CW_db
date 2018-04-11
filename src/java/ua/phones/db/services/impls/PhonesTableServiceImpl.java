@@ -70,7 +70,6 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void updateCamera(Camera camera) {
-        System.out.println(camera.getResolution() + " res");
         Camera tempCamera = cameraDAO.getCamera(camera.getId());
         if (tempCamera != camera) {
             cameraDAO.updateCamera(camera);
@@ -79,12 +78,7 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteCamera(int id) {
-        boolean completed = cameraDAO.deleteCamera(id);
-        if(!completed) {
-            System.out.println("Камера з id:" + id + " не може бути видалена, так як використовується");
-        } else {
-            System.out.println("Камеру з id:" + id + " успішно видалено");
-        }
+        cameraDAO.deleteCamera(id);
     }
 
     @Override
@@ -106,12 +100,7 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteDisplay(int id) {
-        boolean completed = displayDAO.deleteDisplay(id);
-        if (!completed) {
-            System.out.println("Дисплей з id:" + id + " не може бути видалений, так як використовується");
-        } else {
-            System.out.println("Дисплей з id:" + id + " успішно видалено");
-        }
+        displayDAO.deleteDisplay(id);
     }
 
     @Override
@@ -133,12 +122,7 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteProcessor(int id) {
-        boolean completed = processorDAO.deleteProcessor(id);
-        if (!completed) {
-            System.out.println("Процесор з id:" + id + " не може бути видалений, так як використовується");
-        } else {
-            System.out.println("Процесор з id:" + id + " успішно видалено");
-        }
+        processorDAO.deleteProcessor(id);
     }
 
     @Override
@@ -188,12 +172,7 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteVendor(int id) {
-        boolean completed = vendorDAO.deleteVendor(id);
-        if (!completed) {
-            System.out.println("Виробник з id:" + id + " не може бути видалений, так як використовується");
-        } else {
-            System.out.println("Виробник з id:" + id + " успішно видалено");
-        }
+        vendorDAO.deleteVendor(id);
     }
 
     @Override
@@ -219,8 +198,8 @@ public class PhonesTableServiceImpl implements PhonesTableService {
     public void deleteSmartPhone(int id) {
         Smartphone smartphone = smartphoneDAO.getSmartphone(id);
         smartphoneDAO.deleteSmartphome(id);
-        deleteVendor(smartphone.getId());
         deleteCharacteristics(smartphone.getCharacteristicsId());
+        deleteVendor(smartphone.getVendorId());
     }
 
     private Smartphone prepareSmartphone(Smartphone smartphone) {

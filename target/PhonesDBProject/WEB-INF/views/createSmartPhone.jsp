@@ -15,7 +15,7 @@
 </form>
     <div>
         <div class="container-div">
-            <form:form modelAttribute="smartPhone" method="post" action="/create-smartphone">
+            <form:form modelAttribute="smartPhone" method="post" action="/process">
                 <div>
                     <h1>Основне</h1>
                     <div>

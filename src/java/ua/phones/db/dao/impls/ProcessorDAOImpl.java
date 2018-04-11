@@ -68,32 +68,22 @@ public class ProcessorDAOImpl implements ProcessorDAO {
     }
 
     @Override
-    public boolean deleteProcessor(int id) {
+    public void deleteProcessor(int id) {
         String sql = "DELETE FROM processors WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     @Override
-    public boolean updateProcessor(Processor processor) {
+    public void updateProcessor(Processor processor) {
         String sql = "UPDATE processors SET model=:model, cores=:cores, frequency=:frequency WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", processor.getId());
         params.addValue("model", processor.getModel());
         params.addValue("cores", processor.getCores());
         params.addValue("frequency", processor.getFrequency());
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     private static final class ProcessorMapper implements RowMapper<Processor> {

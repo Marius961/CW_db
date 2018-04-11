@@ -10,7 +10,7 @@ public interface ProcessorDAO {
 
     int insertProcessor(Processor processor);
 
-    boolean deleteProcessor(int id);
+    void deleteProcessor(int id);
 
-    boolean updateProcessor(Processor processor);
+    void updateProcessor(Processor processor);
 }

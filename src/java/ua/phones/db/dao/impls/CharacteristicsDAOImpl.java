@@ -70,20 +70,15 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
     }
 
     @Override
-    public boolean deleteCharacteristics(int id) {
+    public void deleteCharacteristics(int id) {
         String sql = "DELETE FROM characteristics WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", id);
-        try {
-            jdbcTemplate.update(sql, params);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     @Override
-    public boolean updateCharacteristics(Characteristics characteristics) {
+    public void updateCharacteristics(Characteristics characteristics) {
         String sql = "UPDATE characteristics SET battery_volume=:btVol, processor_id=:processorId, camera_id=:cameraId, display_id=:displayId WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", characteristics.getId());
@@ -91,12 +86,7 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
         params.addValue("processorId", characteristics.getProcessorId());
         params.addValue("cameraId", characteristics.getCameraId());
         params.addValue("displayId", characteristics.getDisplayId());
-        try {
-            jdbcTemplate.update(sql, params);
-            return false;
-        } catch (Exception e) {
-            return false;
-        }
+        jdbcTemplate.update(sql, params);
     }
 
     private static final class CharacteristicsMapper implements RowMapper<Characteristics> {

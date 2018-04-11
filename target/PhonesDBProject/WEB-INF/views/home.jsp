@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
 </head>
 <body>
-<form action="<c:url value="/create"/>">
+<form action="<c:url value="/smartPhone"/>">
     <button class="btn btn-info btn-1">Додати</button>
 </form>
 <c:forEach var="smartphone" items="${phones}">
