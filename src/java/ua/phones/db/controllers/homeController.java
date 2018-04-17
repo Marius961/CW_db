@@ -4,13 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ua.phones.db.models.DeletedPhone;
+import ua.phones.db.models.SearchedPhone;
 import ua.phones.db.models.Smartphone;
 import ua.phones.db.services.interfaces.PhonesTableService;
 import ua.phones.db.validators.SmartPhoneValidator;
+
+import java.util.Map;
 
 
 @Controller
@@ -25,15 +29,27 @@ public class homeController {
         this.smartphoneValidator = smartphoneValidator;
     }
 
-    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
-    public ModelAndView geyHome() {
+    @RequestMapping(value = {"/", "/home", "/search/{name}"}, method = RequestMethod.GET)
+    public ModelAndView getHome(@PathVariable(required = false) String name) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("home");
-        modelAndView.addObject("phones", phonesTableService.getAllSmartphones());
+        if (name != null) {
+            modelAndView.addObject("phones", phonesTableService.search(name));
+        } else {
+            modelAndView.addObject("phones", phonesTableService.getAllSmartphones());
+        }
+        modelAndView.addObject("searchedPhone", new SearchedPhone());
         modelAndView.addObject("smartphone", new Smartphone());
         modelAndView.addObject("deletedPhone", new DeletedPhone());
+        modelAndView.addObject("stat", phonesTableService.getCountOfSmartphones());
         return modelAndView;
     }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String search(@ModelAttribute SearchedPhone searchedPhone) {
+        return "redirect:/search/"+ searchedPhone.getSmartPhoneModel();
+    }
+
 
     @RequestMapping(value = "/smartPhone", method = RequestMethod.GET)
     public ModelAndView createSmartPhone(@ModelAttribute Smartphone smartphone) {
@@ -73,5 +89,6 @@ public class homeController {
         modelAndView.setViewName("createSmartPhone");
         return modelAndView;
     }
+
 
 }

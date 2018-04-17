@@ -14,4 +14,7 @@ public interface CharacteristicsDAO {
 
     void updateCharacteristics(Characteristics characteristics);
 
+    int getCameraCount(int cameraId);
+    int getProcessorCount(int processorId);
+    int displayCount(int displayId);
 }

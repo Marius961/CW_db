@@ -1,7 +1,9 @@
 package ua.phones.db.dao.impls;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -12,7 +14,9 @@ import ua.phones.db.models.Smartphone;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class SmartphoneDAOImpl implements SmartphoneDAO {
@@ -62,6 +66,30 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
     }
 
     @Override
+    public List<Smartphone> getSmartPhonesByModel(String model) {
+        String sql = "SELECT * FROM smartphones WHERE model LIKE :model";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("model", "%" + model + "%");
+        try {
+            return jdbcTemplate.query(sql, params, new SmartphoneMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Smartphone> getSmartPhoneByVendorName(String vendorName) {
+        String sql = "SELECT * FROM smartphones s, vendors v WHERE v.id=s.vendor_id AND v.name LIKE :name";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("name", "%" + vendorName + "%");
+        try {
+            return jdbcTemplate.query(sql, params, new SmartphoneMapper());
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
     public Smartphone getSmartPhoneByModel(String model) {
         String sql = "SELECT * FROM smartphones WHERE model=:model";
         MapSqlParameterSource params = new MapSqlParameterSource();
@@ -100,6 +128,18 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
         params.addValue("model", smartphone.getModel());
         params.addValue("characteristicsId", smartphone.getCharacteristicsId());
         jdbcTemplate.update(sql, params);
+    }
+
+    @Override
+    public Map<String, Integer> getPhonesFromVendorsCount() {
+        String sql = "SELECT v.name, count(s.vendor_id) FROM vendors v, smartphones s WHERE v.id=s.vendor_id GROUP BY v.name";
+        return jdbcTemplate.query(sql, (ResultSetExtractor<Map<String, Integer>>) rs -> {
+            HashMap<String, Integer> mapRet = new HashMap<>();
+            while (rs.next()) {
+                mapRet.put(rs.getString("name"), rs.getInt("count(s.vendor_id)"));
+            }
+            return mapRet;
+        });
     }
 
     private static final class SmartphoneMapper implements RowMapper<Smartphone> {

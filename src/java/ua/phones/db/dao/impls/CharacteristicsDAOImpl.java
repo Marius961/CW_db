@@ -89,6 +89,30 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
         jdbcTemplate.update(sql, params);
     }
 
+    @Override
+    public int getCameraCount(int cameraId) {
+        String sql = "SELECT count(*) FROM characteristics WHERE camera_id=id";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id", cameraId);
+        return jdbcTemplate.queryForObject(sql, params, Integer.class);
+    }
+
+    @Override
+    public int getProcessorCount(int processorId) {
+        String sql = "SELECT count(*) FROM characteristics WHERE processor_id=id";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id", processorId);
+        return jdbcTemplate.queryForObject(sql, params, Integer.class);
+    }
+
+    @Override
+    public int displayCount(int displayId) {
+        String sql = "SELECT count(*) FROM characteristics WHERE display_id=id";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id", displayId);
+        return jdbcTemplate.queryForObject(sql, params, Integer.class);
+    }
+
     private static final class CharacteristicsMapper implements RowMapper<Characteristics> {
 
         @Override

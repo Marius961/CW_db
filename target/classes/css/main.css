@@ -20,7 +20,6 @@
     width: 10%;
     left: 1.5%;
     margin: 0 auto;
-
 }
 
 .inline-btn {
@@ -54,3 +53,10 @@ td th {
     color: red;
 }
 
+.info-1 {
+    position: absolute;
+    display: inline-block;
+    width: 10%;
+    left: 1.5%;
+    margin: 5% auto;
+}

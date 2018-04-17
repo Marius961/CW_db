@@ -3,10 +3,13 @@ package ua.phones.db.services.interfaces;
 import ua.phones.db.models.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PhonesTableService {
 
     List<Smartphone> getAllSmartphones();
+
+    List<Smartphone> search(String name);
 
     Smartphone fillSmartphone(Smartphone smartphone);
 
@@ -47,4 +50,6 @@ public interface PhonesTableService {
     void updateSmartPhone(Smartphone smartphone);
 
     void deleteSmartPhone(int id);
+
+    Map<String, Integer> getCountOfSmartphones();
 }

@@ -6,7 +6,7 @@ import ua.phones.db.dao.interfaces.*;
 import ua.phones.db.models.*;
 import ua.phones.db.services.interfaces.PhonesTableService;
 
-import java.util.List;
+import java.util.*;
 
 
 @Service
@@ -39,6 +39,20 @@ public class PhonesTableServiceImpl implements PhonesTableService {
             fillSmartphone(smartphone);
         }
         return  smartphones;
+    }
+
+    @Override
+    public List<Smartphone> search(String name) {
+        Set<Smartphone> searchedPhones = new HashSet<>();
+        searchedPhones.addAll(smartphoneDAO.getSmartPhonesByModel(name));
+        searchedPhones.addAll(smartphoneDAO.getSmartPhoneByVendorName(name));
+
+        List<Smartphone> out = new LinkedList<>(searchedPhones);
+        for (Smartphone smartphone : out) {
+            fillSmartphone(smartphone);
+            System.out.println(smartphone.getVendor().getName());
+        }
+        return out;
     }
 
     @Override
@@ -200,6 +214,11 @@ public class PhonesTableServiceImpl implements PhonesTableService {
         smartphoneDAO.deleteSmartphome(id);
         deleteCharacteristics(smartphone.getCharacteristicsId());
         deleteVendor(smartphone.getVendorId());
+    }
+
+    @Override
+    public Map<String, Integer> getCountOfSmartphones() {
+        return smartphoneDAO.getPhonesFromVendorsCount();
     }
 
     private Smartphone prepareSmartphone(Smartphone smartphone) {
