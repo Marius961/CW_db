@@ -31,28 +31,25 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public List<Smartphone> getAllSmartphones() {
-        List<Smartphone> smartphones = smartphoneDAO.getAllSmartphones();
-        if (smartphones == null) {
+        List<Smartphone> smartPhones = smartphoneDAO.getAllSmartphones();
+        if (smartPhones == null) {
             return null;
         }
-        for (Smartphone smartphone : smartphones) {
+        for (Smartphone smartphone : smartPhones) {
             fillSmartphone(smartphone);
         }
-        return  smartphones;
+        return  smartPhones;
     }
 
     @Override
     public List<Smartphone> search(String name) {
-        Set<Smartphone> searchedPhones = new HashSet<>();
-        searchedPhones.addAll(smartphoneDAO.getSmartPhonesByModel(name));
-        searchedPhones.addAll(smartphoneDAO.getSmartPhoneByVendorName(name));
+        List<Smartphone> smartPhones = smartphoneDAO.getSearchedPhones(name);
 
-        List<Smartphone> out = new LinkedList<>(searchedPhones);
-        for (Smartphone smartphone : out) {
+        for (Smartphone smartphone : smartPhones) {
             fillSmartphone(smartphone);
             System.out.println(smartphone.getVendor().getName());
         }
-        return out;
+        return smartPhones;
     }
 
     @Override

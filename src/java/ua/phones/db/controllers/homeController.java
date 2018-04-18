@@ -14,6 +14,8 @@ import ua.phones.db.models.Smartphone;
 import ua.phones.db.services.interfaces.PhonesTableService;
 import ua.phones.db.validators.SmartPhoneValidator;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Map;
 
 
@@ -46,8 +48,12 @@ public class homeController {
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public String search(@ModelAttribute SearchedPhone searchedPhone) {
-        return "redirect:/search/"+ searchedPhone.getSmartPhoneModel();
+    public String search(@Valid @ModelAttribute SearchedPhone searchedPhone, BindingResult bindingResult) {
+        if (!bindingResult.hasErrors()) {
+            return "redirect:/search/"+ searchedPhone.getSmartPhoneModel();
+        } else {
+            return "redirect:/";
+        }
     }
 
 

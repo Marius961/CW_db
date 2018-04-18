@@ -23,31 +23,28 @@
 }
 
 .inline-btn {
-    display: inline-block;
-    margin: 3%;
-    float: left;
+    width: 25%;
+    display: table-cell;
 }
 
 .div-right {
     display: inline-block;
-    position: relative;
-    left: 84%;
-    width: 30%;
+    width: 10%;
 }
 
 
 
 td th {
-    width: 25%;
+    width: 5%;
     display: inline-block;
 }
 
-.btn-2 {
-    height: 6%;
-    font-size: 2.3vh;
-    text-align: center;
-    padding: 8%;
-}
+/*.btn-2 {*/
+    /*height: 100%;*/
+    /*font-size: 2.5vh;*/
+    /*text-align: center;*/
+    /*padding: 5%;*/
+/*}*/
 
 .error-1 {
     color: red;
@@ -59,4 +56,49 @@ td th {
     width: 10%;
     left: 1.5%;
     margin: 5% auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.phone-title {
+    width: 90%;
+    display: table-cell;
+    font-size: 4vh;
+}
+
+.phone-title:hover {
+    cursor: pointer;
+    color: grey;
+}
+
+.btn-delete {
+    background: rgba(241, 75, 78, 0.17);
+    border: 0;
+    font-family: "Segoe UI Semibold", serif;
+    color: snow;
+    border-radius: 2%;
+    margin: 1%;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #f14b4e;
+    transition: 0.3s;
+}
+
+.btn-edit {
+    background: rgba(110, 109, 255, 0.16);
+    border: 0;
+    font-family: "Segoe UI Semibold", serif;
+    color: snow;
+    border-radius: 2%;
+    margin: 1%;
+    transition: 0.3s;
+}
+
+.btn-edit:hover {
+    background: #6e6dff;
+    transition: 0.3s;
 }

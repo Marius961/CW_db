@@ -66,22 +66,10 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
     }
 
     @Override
-    public List<Smartphone> getSmartPhonesByModel(String model) {
-        String sql = "SELECT * FROM smartphones WHERE model LIKE :model";
+    public List<Smartphone> getSearchedPhones(String name) {
+        String sql = "SELECT * FROM smartphones s, vendors v WHERE s.vendor_id=v.id and (s.model LIKE :name OR v.name LIKE :name)";
         MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("model", "%" + model + "%");
-        try {
-            return jdbcTemplate.query(sql, params, new SmartphoneMapper());
-        } catch (EmptyResultDataAccessException e) {
-            return null;
-        }
-    }
-
-    @Override
-    public List<Smartphone> getSmartPhoneByVendorName(String vendorName) {
-        String sql = "SELECT * FROM smartphones s, vendors v WHERE v.id=s.vendor_id AND v.name LIKE :name";
-        MapSqlParameterSource params = new MapSqlParameterSource();
-        params.addValue("name", "%" + vendorName + "%");
+        params.addValue("name", "%" + name + "%");
         try {
             return jdbcTemplate.query(sql, params, new SmartphoneMapper());
         } catch (EmptyResultDataAccessException e) {

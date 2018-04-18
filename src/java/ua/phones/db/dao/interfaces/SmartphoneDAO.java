@@ -13,9 +13,7 @@ public interface SmartphoneDAO {
 
     Smartphone getSmartphone(Smartphone smartphone);
 
-    List<Smartphone> getSmartPhonesByModel(String model);
-
-    List<Smartphone> getSmartPhoneByVendorName(String vendorName);
+    List<Smartphone> getSearchedPhones(String model);
 
     Smartphone getSmartPhoneByModel(String model);
 
