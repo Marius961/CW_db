@@ -19,6 +19,8 @@ public interface SmartphoneDAO {
 
     void insertSmartphone(Smartphone smartphone);
 
+    public int getVendorCount(int vendorId);
+
     void deleteSmartphome(int id);
 
     void updateSmartphone(Smartphone smartphone);

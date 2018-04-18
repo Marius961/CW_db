@@ -130,6 +130,14 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
         });
     }
 
+    @Override
+    public int getVendorCount(int vendorId) {
+        String sql = "SELECT count(*) FROM smartphones WHERE vendor_id=:id";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id", vendorId);
+        return jdbcTemplate.queryForObject(sql, params, Integer.class);
+    }
+
     private static final class SmartphoneMapper implements RowMapper<Smartphone> {
 
         @Override

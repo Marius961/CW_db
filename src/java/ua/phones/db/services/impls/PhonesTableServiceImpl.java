@@ -47,7 +47,6 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
         for (Smartphone smartphone : smartPhones) {
             fillSmartphone(smartphone);
-            System.out.println(smartphone.getVendor().getName());
         }
         return smartPhones;
     }
@@ -89,7 +88,10 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteCamera(int id) {
-        cameraDAO.deleteCamera(id);
+        int cameraCount = characteristicsDAO.getCameraCount(id);
+        if (cameraCount == 0) {
+            cameraDAO.deleteCamera(id);
+        }
     }
 
     @Override
@@ -111,7 +113,10 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteDisplay(int id) {
-        displayDAO.deleteDisplay(id);
+       int displayCount = characteristicsDAO.displayCount(id);
+       if (displayCount == 0) {
+           displayDAO.deleteDisplay(id);
+       }
     }
 
     @Override
@@ -133,7 +138,10 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteProcessor(int id) {
-        processorDAO.deleteProcessor(id);
+        int processorCount = characteristicsDAO.getProcessorCount(id);
+        if(processorCount == 0) {
+            processorDAO.deleteProcessor(id);
+        }
     }
 
     @Override
@@ -183,7 +191,10 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteVendor(int id) {
-        vendorDAO.deleteVendor(id);
+        int vendorCount = smartphoneDAO.getVendorCount(id);
+        if (vendorCount == 0) {
+            vendorDAO.deleteVendor(id);
+        }
     }
 
     @Override

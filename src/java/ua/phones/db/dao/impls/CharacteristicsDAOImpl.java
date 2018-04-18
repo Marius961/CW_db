@@ -91,7 +91,7 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
 
     @Override
     public int getCameraCount(int cameraId) {
-        String sql = "SELECT count(*) FROM characteristics WHERE camera_id=id";
+        String sql = "SELECT count(*) FROM characteristics WHERE camera_id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", cameraId);
         return jdbcTemplate.queryForObject(sql, params, Integer.class);
@@ -99,7 +99,7 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
 
     @Override
     public int getProcessorCount(int processorId) {
-        String sql = "SELECT count(*) FROM characteristics WHERE processor_id=id";
+        String sql = "SELECT count(*) FROM characteristics WHERE processor_id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", processorId);
         return jdbcTemplate.queryForObject(sql, params, Integer.class);
@@ -107,7 +107,7 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
 
     @Override
     public int displayCount(int displayId) {
-        String sql = "SELECT count(*) FROM characteristics WHERE display_id=id";
+        String sql = "SELECT count(*) FROM characteristics WHERE display_id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", displayId);
         return jdbcTemplate.queryForObject(sql, params, Integer.class);
