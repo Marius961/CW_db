@@ -44,7 +44,6 @@ public class SmartPhoneValidator implements Validator {
     }
 
     private void validateCharacteristics(Errors errors, Characteristics characteristics) {
-        System.out.println(characteristics.getBatteryVolume() + " bt vol");
         if (characteristics.getBatteryVolume() <= 0) {
             errors.rejectValue("characteristics.batteryVolume", "smartphone.characteristics.battery.volume");
         }

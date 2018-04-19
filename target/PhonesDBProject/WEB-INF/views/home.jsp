@@ -26,6 +26,7 @@
     <div class="info-1 form-group">
         <c:forEach items="${stat}" var="entry">
             <a href="<c:url value="/search/${entry.key}"/>">${entry.key}(${entry.value})</a>
+            <br>
         </c:forEach>
         <br>
         <a href="<c:url value="/"/>" style="color: black; padding: 1%; background: rgba(128,128,119,0.44); display: inline-block">Зкинути результати</a>
