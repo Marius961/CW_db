@@ -5,7 +5,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <c:if test="${smartPhone.id == '0'}">
+        <title>Додавання</title>
+    </c:if>
+    <c:if test="${smartPhone.id != '0'}">
+        <title>редагування</title>
+    </c:if>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
 </head>

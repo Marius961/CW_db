@@ -16,5 +16,5 @@ public interface CharacteristicsDAO {
 
     int getCameraCount(int cameraId);
     int getProcessorCount(int processorId);
-    int displayCount(int displayId);
+    int getDisplayCount(int displayId);
 }

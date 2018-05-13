@@ -113,7 +113,7 @@ public class PhonesTableServiceImpl implements PhonesTableService {
 
     @Override
     public void deleteDisplay(int id) {
-       int displayCount = characteristicsDAO.displayCount(id);
+       int displayCount = characteristicsDAO.getDisplayCount(id);
        if (displayCount == 0) {
            displayDAO.deleteDisplay(id);
        }

@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Головна</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"  crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
 </head>
@@ -29,7 +29,7 @@
             <br>
         </c:forEach>
         <br>
-        <a href="<c:url value="/"/>" style="color: black; padding: 1%; background: rgba(128,128,119,0.44); display: inline-block">Зкинути результати</a>
+        <a href="<c:url value="/"/>" style="color: black; padding: 1%; background: rgba(128,128,119,0.44); display: inline-block">Скинути результати</a>
     </div>
     <c:if test="${empty phones}">
         <div class="container-div">

@@ -53,7 +53,11 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
 
     @Override
     public Smartphone getSmartphone(Smartphone smartphone) {
-        String sql = "SELECT * FROM smartphones WHERE vendor_id=:vendorId AND model=:model AND characteristics_id=:characteristicsId";
+        String sql =
+                "SELECT * FROM smartphones " +
+                "WHERE vendor_id=:vendorId " +
+                "AND model=:model " +
+                "AND characteristics_id=:characteristicsId";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("vendorId", smartphone.getVendorId());
         params.addValue("model", smartphone.getModel());
@@ -67,7 +71,10 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
 
     @Override
     public List<Smartphone> getSearchedPhones(String name) {
-        String sql = "SELECT * FROM smartphones s, vendors v WHERE s.vendor_id=v.id and (s.model LIKE :name OR v.name LIKE :name)";
+        String sql =
+                "SELECT * FROM smartphones s, vendors v " +
+                "WHERE s.vendor_id=v.id and (s.model LIKE :name " +
+                "OR v.name LIKE :name)";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("name", "%" + name + "%");
         try {
@@ -91,7 +98,9 @@ public class SmartphoneDAOImpl implements SmartphoneDAO {
 
     @Override
     public void insertSmartphone(Smartphone smartphone) {
-        String sql = "INSERT INTO smartphones (vendor_id, model, characteristics_id) VALUES (:vendorId, :model, :characteristicsId)";
+        String sql =
+                "INSERT INTO smartphones (vendor_id, model, characteristics_id) " +
+                "VALUES (:vendorId, :model, :characteristicsId)";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("vendorId", smartphone.getVendorId());
         params.addValue("model", smartphone.getModel());

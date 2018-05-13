@@ -39,7 +39,11 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
 
     @Override
     public Characteristics getCharacteristics(Characteristics characteristics) {
-        String sql = "SELECT * FROM characteristics WHERE battery_volume=:btVol AND processor_id=:processorId AND camera_id=:cameraId AND display_id=:displayId";
+        String sql = "SELECT * FROM characteristics " +
+                "WHERE battery_volume=:btVol " +
+                "AND processor_id=:processorId " +
+                "AND camera_id=:cameraId " +
+                "AND display_id=:displayId";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("btVol", characteristics.getBatteryVolume());
         params.addValue("processorId", characteristics.getProcessorId());
@@ -54,7 +58,10 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
 
     @Override
     public int insertCharacteristics(Characteristics characteristics) {
-        String sql = "INSERT INTO characteristics (battery_volume, processor_id, camera_id, display_id) VALUES (:btVol, :processorId, :cameraId, :displayId)";
+        String sql = "INSERT INTO characteristics " +
+                "(battery_volume, processor_id, camera_id, display_id) " +
+                "VALUES " +
+                "(:btVol, :processorId, :cameraId, :displayId)";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("btVol", characteristics.getBatteryVolume());
         params.addValue("processorId", characteristics.getProcessorId());
@@ -79,7 +86,10 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
 
     @Override
     public void updateCharacteristics(Characteristics characteristics) {
-        String sql = "UPDATE characteristics SET battery_volume=:btVol, processor_id=:processorId, camera_id=:cameraId, display_id=:displayId WHERE id=:id";
+        String sql = "UPDATE characteristics " +
+                "SET battery_volume=:btVol, processor_id=:processorId, " +
+                "camera_id=:cameraId, display_id=:displayId " +
+                "WHERE id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", characteristics.getId());
         params.addValue("btVol", characteristics.getBatteryVolume());
@@ -106,7 +116,7 @@ public class CharacteristicsDAOImpl implements CharacteristicsDAO {
     }
 
     @Override
-    public int displayCount(int displayId) {
+    public int getDisplayCount(int displayId) {
         String sql = "SELECT count(*) FROM characteristics WHERE display_id=:id";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", displayId);
