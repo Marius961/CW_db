@@ -80,7 +80,7 @@
                         <form:errors path="characteristics.display.model" cssClass="error-1"/>
                     </div>
                     <div>
-                        <form:label path="characteristics.display.resolution">Розширення:</form:label>
+                        <form:label path="characteristics.display.resolution">Роздільна здатність:</form:label>
                         <form:input path="characteristics.display.resolution" cssClass="form-control" type="text"/>
                         <form:errors path="characteristics.display.resolution" cssClass="error-1"/>
                     </div>

@@ -11,16 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0e56562d-9ddf-4d56-b04a-5a47e52e9bc9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/SmartphonesDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/DB/SmartphonesDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_schema.vpp" beforeDir="false" afterPath="$PROJECT_DIR$/db_schema.vpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CharacteristicsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CharacteristicsDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/SmartphoneDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/SmartphoneDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/ua/phones/db/dao/interfaces/CharacteristicsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/ua/phones/db/dao/interfaces/CharacteristicsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/ua/phones/db/dao/interfaces/SmartphoneDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/ua/phones/db/dao/interfaces/SmartphoneDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/ua/phones/db/services/impls/PhonesTableServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/ua/phones/db/services/impls/PhonesTableServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/createSmartPhone.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/createSmartPhone.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PhonesDBProject/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/PhonesDBProject/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PhonesDBProject/WEB-INF/views/createSmartPhone.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/PhonesDBProject/WEB-INF/views/createSmartPhone.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,11 +57,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VendorDAOImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="messages.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/messages.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app-context.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/app-context.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="14" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SmartphoneDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/SmartphoneDAOImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="153" column="21" selection-end-line="162" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VendorDAOImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/VendorDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1349">
-              <caret line="84" selection-start-line="84" selection-end-line="93" selection-end-column="5" />
+            <state relative-caret-position="300">
+              <caret line="71" column="22" selection-end-line="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CharacteristicsDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CharacteristicsDAOImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="128" column="11" selection-end-line="140" />
             </state>
           </provider>
         </entry>
@@ -77,8 +105,17 @@
       <file leaf-file-name="DisplayDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/DisplayDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+            <state relative-caret-position="247">
+              <caret line="26" lean-forward="true" selection-end-line="106" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessorDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/ProcessorDAOImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="70" column="22" lean-forward="true" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -86,26 +123,8 @@
       <file leaf-file-name="CameraDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CameraDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="createSmartPhone.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/createSmartPhone.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1216">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="224">
+              <caret line="70" column="19" lean-forward="true" selection-end-line="96" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -226,8 +245,6 @@
       <foldersAlwaysOnTop value="false" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +276,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -283,6 +308,48 @@
               <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="CW_db" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="impls" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="validators" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -298,46 +365,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PhonesDBProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CW_db" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -350,7 +385,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -552,11 +587,18 @@
       <workItem from="1526198879493" duration="167000" />
       <workItem from="1526199068512" duration="195000" />
       <workItem from="1526210964468" duration="338000" />
+      <workItem from="1526211507367" duration="2123000" />
+      <workItem from="1526226106574" duration="18000" />
+      <workItem from="1526293081543" duration="1294000" />
+      <workItem from="1526360942843" duration="1167000" />
+      <workItem from="1526378147552" duration="638000" />
+      <workItem from="1526378811000" duration="13000" />
+      <workItem from="1526381858428" duration="475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137226000" />
+    <option name="totallyTimeSpent" value="142954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1272" height="760" extended-state="6" />
@@ -574,28 +616,28 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33495146" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32847896" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5566343" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5553772" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32847896" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23305786" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24958678" />
       <window_info anchor="right" id="Bean Validation" order="3" sideWeight="0.49315068" weight="0.32975206" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32847896" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.08737864" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32847896" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5068493" side_tool="true" weight="0.32975206" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32847896" />
-      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.5068493" side_tool="true" weight="0.32975206" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -805,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="87" selection-start-line="4" selection-start-column="87" selection-end-line="4" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -882,17 +917,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/ProcessorDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+        <state relative-caret-position="872">
+          <caret line="51" column="62" selection-start-line="51" selection-start-column="62" selection-end-line="51" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/SmartphoneDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/createSmartPhone.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1616">
-          <caret line="149" selection-start-line="149" selection-end-line="160" selection-end-column="5" />
+        <state relative-caret-position="1159">
+          <caret line="82" column="97" selection-start-line="82" selection-start-column="97" selection-end-line="82" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/messages.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -903,45 +945,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CharacteristicsDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CameraDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="123" selection-start-line="123" selection-end-line="137" selection-end-column="5" />
+        <state relative-caret-position="224">
+          <caret line="70" column="19" lean-forward="true" selection-end-line="96" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/VendorDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CharacteristicsDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1349">
-          <caret line="84" selection-start-line="84" selection-end-line="93" selection-end-column="5" />
+        <state relative-caret-position="247">
+          <caret line="128" column="11" selection-end-line="140" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/DisplayDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        <state relative-caret-position="247">
+          <caret line="26" lean-forward="true" selection-end-line="106" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/CameraDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/ProcessorDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="87" column="17" selection-start-line="87" selection-start-column="17" selection-end-line="87" selection-end-column="17" />
+        <state relative-caret-position="262">
+          <caret line="70" column="22" lean-forward="true" selection-end-line="101" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/createSmartPhone.jsp">
+    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/SmartphoneDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+        <state relative-caret-position="275">
+          <caret line="153" column="21" selection-end-line="162" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
+    <entry file="file://$PROJECT_DIR$/src/java/ua/phones/db/dao/impls/VendorDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1216">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="300">
+          <caret line="71" column="22" selection-end-line="95" />
         </state>
       </provider>
     </entry>
