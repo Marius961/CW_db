@@ -48,4 +48,14 @@ public class PhonesRest {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @RequestMapping(value = "/phone/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Void> updateSmartphone(@RequestBody Smartphone smartphone, @PathVariable int id) {
+        if (smartphone != null) {
+            phonesTableService.updateSmartPhone(smartphone);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
